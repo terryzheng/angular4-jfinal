@@ -1,2 +1,1 @@
-# angular4-springboot
-jfinal3 + angular4 + postgre
+jfinal3.1 + angular4 + postgre
