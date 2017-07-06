@@ -40,7 +40,7 @@ public class ApplicationConfig extends JFinalConfig {
 
 	@Override
 	public void configEngine(Engine e) {
-		// e.addSharedFunction("/_view/common/_layout.html");
+		e.addSharedFunction("/_view/common/_layout.html");
 	}
 
 	@Override

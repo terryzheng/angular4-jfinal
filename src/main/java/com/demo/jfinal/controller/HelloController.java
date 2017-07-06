@@ -1,7 +1,6 @@
 package com.demo.jfinal.controller;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
@@ -21,7 +20,6 @@ import com.jfinal.kit.Kv;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.IAtom;
-import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.activerecord.SqlPara;
 
@@ -91,7 +89,7 @@ public class HelloController extends Controller {
 	}
 
 	public void low() {
-		List sl = Arrays.asList(1, 2, 3, 4);
+		List<Integer> sl = Arrays.asList(1, 2, 3, 4);
 		SqlPara sp = Db.getSqlPara("selectStudents", Kv.by("idList", sl));
 
 		List<Record> s = Db.find(sp.getSql());
@@ -107,10 +105,11 @@ public class HelloController extends Controller {
 		setAttr("data", list);
 		renderJson();
 	}
-	
-	public void multi(){
+
+	public void multi() {
 		Student s1 = Student.dao.findById(1);
 		Student s2 = Student.dao.use("main").findById(1);
 		renderText(s1.getStr("name"));
+		renderText(s2.getStr("name"));
 	}
 }
